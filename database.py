@@ -8,7 +8,7 @@ import os
 load_dotenv('.env')
 
 SERVER = os.getenv("SERVER")
-USERNAME = os.getenv("USER")
+USERNAME = os.getenv("USERNAME")
 PASSWORD = os.getenv("PASSWORD")
 DB = os.getenv("DB")
 
