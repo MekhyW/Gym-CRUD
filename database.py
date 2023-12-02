@@ -8,11 +8,11 @@ import os
 load_dotenv('.env')
 
 SERVER = os.getenv("SERVER")
-USER = os.getenv("USER")
+USERNAME = os.getenv("USER")
 PASSWORD = os.getenv("PASSWORD")
 DB = os.getenv("DB")
 
-SQLALCHEMY_DATABASE_URL = f"mysql://{USER}:{PASSWORD}@{SERVER}/{DB}"
+SQLALCHEMY_DATABASE_URL = f"mysql://{USERNAME}:{PASSWORD}@{SERVER}/{DB}"
 sql_script_path = 'assets/db_script.sql'
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
