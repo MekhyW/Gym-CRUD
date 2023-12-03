@@ -6,12 +6,12 @@ class MembrosBase(BaseModel):
     id_membro: int
     nome: str = Field(
         title="Nome do membro",
-        max_length=25,
+        max_length=255,
         example="Joao"
     )
     sobrenome: Optional[str] = Field(
         title="Sobrenome do membro",
-        max_length=25,
+        max_length=255,
         example="Macedo"
     )
     celular: Optional[int] = Field(
@@ -29,7 +29,7 @@ class PlanosBase(BaseModel):
     id_plano: int
     nome: str = Field(
         title="Nome do plano",
-        max_length=25,
+        max_length=255,
         example="Plano 1 ano"
     )
     preco: float = Field(

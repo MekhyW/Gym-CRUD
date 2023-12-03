@@ -8,8 +8,8 @@ class Membros(Base):
     __tablename__ = "membros"
 
     id_membro = Column(Integer, primary_key=True, index=True)
-    nome = Column(String, nullable=False)
-    sobrenome = Column(String, nullable=False)
+    nome = Column(String(length=255), nullable=False)
+    sobrenome = Column(String(length=255), nullable=False)
     celular = Column(BigInteger,nullable=True)
 
     assinaturas = relationship("Assinaturas", back_populates="membro")
@@ -18,8 +18,8 @@ class Planos(Base):
     __tablename__ = "planos"
 
     id_plano = Column(Integer, primary_key=True, index=True)
-    nome = Column(String, index=True, nullable=False)
-    preco = Column(String, index=True, nullable=False)
+    nome = Column(String(length=255), index=True, nullable=False)
+    preco = Column(String(length=255), index=True, nullable=False)
 
     assinaturas = relationship("Assinaturas", back_populates="plano")
     
