@@ -3,6 +3,7 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from database import SessionLocal, engine
+from typing import List
 import crud
 import schemas
 import models
@@ -29,7 +30,7 @@ async def projeto_descricao():
 #MEMBROS
 ###############
 
-@app.get("/membros/", response_model=list[schemas.MembrosBase], status_code=200, tags=["Membros"], 
+@app.get("/membros/", response_model=List[schemas.MembrosBase], status_code=200, tags=["Membros"], 
          description="Retorna a lista de todos os membros, com seus respectivos atributos")
 async def get_membros(db : Session = Depends(get_db)):
     membros = crud.get_membros(db)
@@ -70,7 +71,7 @@ async def delete_membros(id_membro : int , db: Session = Depends(get_db) ):
 #PLANOS
 ###############
 
-@app.get("/planos/", response_model=list[schemas.PlanosBase], status_code=200, tags=["Planos"],
+@app.get("/planos/", response_model=List[schemas.PlanosBase], status_code=200, tags=["Planos"],
          description="Retorna a lista de todos os planos, com seus respectivos atributos")
 async def get_planos(db : Session = Depends(get_db)):
     planos = crud.get_planos(db)
@@ -111,7 +112,7 @@ async def delete_planos(id_plano: int, db: Session = Depends(get_db)):
 #ASSINATURAS (MEMBRO-PLANO)
 ###############
 
-@app.get("/assinaturas/", response_model=list[schemas.AssinaturasBase], status_code=200, tags=["Assinaturas"],
+@app.get("/assinaturas/", response_model=List[schemas.AssinaturasBase], status_code=200, tags=["Assinaturas"],
          description="Retorna a lista de todas as assinaturas, com seus respectivos atributos")
 async def get_assinaturas(db : Session = Depends(get_db)):
     assinaturas = crud.get_assinaturas(db)
