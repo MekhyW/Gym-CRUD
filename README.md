@@ -29,3 +29,17 @@
 - `POST /subscriptions/create` - Create a subscription
 - `PUT /subscriptions/update/{subscription_id}` - Update a subscription by id
 - `DELETE /subscriptions/delete/{subscription_id}` - Delete a subscription by id
+
+## How to run
+
+- Clone this repository
+- Install the dependencies with `pip install -r requirements.txt`
+- Create a `.env` file with the following environment variables:
+    <ul>
+        <li>SERVER (can be "localhost" or an IP)</li>
+        <li>USERNAME (the username for the database)</li>
+        <li>PASSWORD (the password for the database)</li>
+        <li>DB (the name of the database)</li>
+    </ul>
+- Run the server with `uvicorn main:app --reload`
+- Access the docs at `http://localhost:8000/docs` or `http://localhost:8000/redoc`
